@@ -1,4 +1,4 @@
-package lv1;
+package programmers.lv1;
 
 public class GetMiddleLetter {
     public static void main(String[] args) {
