@@ -1,8 +1,6 @@
-<<<<<<< HEAD:codingtest/src/programmers/lv1/RectangleStar.java
+
 package programmers.lv1;
-=======
-package lv1;
->>>>>>> ea6cb7a610b9227e595fee5cdbed64a2f58ca143:codingtest/src/lv1/RectangleStar.java
+
 
 import java.util.Scanner;
 
