@@ -3,6 +3,7 @@ package baekjoon.deep1;
 import java.util.*;
 public class Sol1157 {
     public static void main(String[] args) {
+        //단어 공부
         Scanner sc =new Scanner(System.in);
         String input =sc.nextLine().toUpperCase();  //소문자로 바꾼다.
         int len =input.length();
