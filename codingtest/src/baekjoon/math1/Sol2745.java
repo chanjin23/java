@@ -1,4 +1,4 @@
-package baekjoon.math;
+package baekjoon.math1;
 import java.util.*;
 public class Sol2745 {
     public static void main(String[] args) {
