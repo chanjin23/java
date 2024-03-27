@@ -5,21 +5,22 @@ import java.util.Scanner;
 public class Sol0111CompressString {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input= sc.next();
-        char tmp=input.charAt(0);
-        String output = String.valueOf(input.charAt(0));
+        String str= sc.next();
+        str=str+" ";    //뒤에 빈문자열을 받는다.
         int count =1;
-        for(int i=1;i<input.length();++i){
-            if(input.charAt(i)==tmp){
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<str.length()-1;++i){
+            if(str.charAt(i)==str.charAt(i+1)){
                 ++count;
-            }else{
-                if(count==1){
-                    output+=input.substring(i,i+1);
+            }else{  //다른경우 결과
+                sb.append(str.charAt(i));
+                if(count>1){
+                    sb.append(String.valueOf(count));
                 }
-                output+=count;
-                count=1;
+                count =1; //count초기화
             }
         }
-        System.out.println(output);
+        System.out.println(sb);
+
     }
 }
