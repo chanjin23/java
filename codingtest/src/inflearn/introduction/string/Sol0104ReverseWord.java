@@ -1,4 +1,4 @@
-package inflearn.introduction;
+package inflearn.introduction.string;
 
 import java.util.*;
 import java.io.*;

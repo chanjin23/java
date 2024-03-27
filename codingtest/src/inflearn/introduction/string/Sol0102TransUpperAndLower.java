@@ -1,4 +1,4 @@
-package inflearn.introduction;
+package inflearn.introduction.string;
 
 import java.util.*;
 public class Sol0102TransUpperAndLower {
