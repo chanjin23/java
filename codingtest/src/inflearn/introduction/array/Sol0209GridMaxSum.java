@@ -14,41 +14,26 @@ public class Sol0209GridMaxSum {
             }
         }
         int max=0;
-        int sum=0;
+        int sum1,sum2;
         for(int i=0;i<n;++i){
-            sum =0;
+            sum1 =sum2=0;
             for(int j=0;j<n;++j){
-                sum+=array[i][j];
+                sum1+=array[i][j];
+                sum2 += array[j][i];
             }
-            if (sum > max) {
-                max=sum;
-            }
+            max=Math.max(max,sum1);
+            max=Math.max(max,sum2);
         }
-        for(int i=0;i<n;++i){
-            sum =0;
-            for(int j=0;j<n;++j){
-                sum+=array[j][i];
-            }
-            if (sum > max) {
-                max=sum;
-            }
-        }
-        sum=0;
-        for(int i=0;i<n;++i){
-            sum+=array[i][i];
-        }
-        if (sum > max) {
-            max=sum;
-        }
-        sum=0;
-        for(int i=0;i<n;++i){
-            sum+=array[i][n-1-i];
-        }
-        if (sum > max) {
-            max=sum;
-        }
-        System.out.println(max);
 
+        sum1=sum2=0;
+        for(int i=0;i<n;++i){
+            sum1+=array[i][i];
+            sum2+=array[i][n-1-i];
+        }
+        max=Math.max(max,sum1);
+        max=Math.max(max,sum2);
+
+        System.out.println(max);
     }
 
 }
