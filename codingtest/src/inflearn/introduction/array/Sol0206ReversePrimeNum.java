@@ -15,10 +15,13 @@ public class Sol0206ReversePrimeNum {
                 num/=10;
                 tmp=tmp*10+remain;
             }
-            if(tmp==1) continue;
             boolean flag =true;
+            if(tmp==1) flag=false;
             for(int j=2;j<tmp;++j){
-                if(tmp%j==0) flag =false;
+                if(tmp%j==0) {
+                    flag =false;
+                    break;
+                }
             }
             if(flag) System.out.print(tmp+ " ");
         }
