@@ -2,7 +2,7 @@ package inflearn.introduction.twopointers;
 
 import java.util.*;
 import java.io.*;
-public class Sol0303 {
+public class Sol0303MaxSales {
     public static void main(String[] args) throws Exception{
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st=new StringTokenizer(br.readLine());
