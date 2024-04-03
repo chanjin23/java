@@ -17,13 +17,22 @@ public class Sol0301SumTwoArray {
         for(int i=0;i<m;++i){
             arr2[i]=Integer.parseInt(st.nextToken());
         }
-        int[] arr3=new int[n+m];
-        for(int i=0;i<n+m;++i){
-            if(i <n) arr3[i]=arr1[i];
-            else arr3[i]=arr2[i-n];
+        ArrayList<Integer> list =new ArrayList<>();
+
+        int p1=0;
+        int p2=0;
+        while (n > p1 && m > p2) {
+            if(arr1[p1] >=arr2[p2]){
+                list.add(arr2[p2++]);
+            }else{
+                list.add(arr1[p1++]);
+            }
         }
-        Arrays.sort(arr3);
-        for(int i:arr3){
+        //돌지 않은 나머지를 순회한다.
+        while(n>p1) list.add(arr1[p1++]);
+        while(m>p2) list.add(arr2[p2++]);
+
+        for(int i :list){
             System.out.print(i+" ");
         }
     }
