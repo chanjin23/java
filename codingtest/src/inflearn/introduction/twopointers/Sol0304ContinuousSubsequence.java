@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 public class Sol0304ContinuousSubsequence {
     public static void main(String[] args) throws IOException {
+        //입력
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
@@ -16,17 +17,22 @@ public class Sol0304ContinuousSubsequence {
         for(int i=0;i<n;++i){
             arr[i]=Integer.parseInt(st.nextToken());
         }
-        int count =0;
-        for(int i=0;i<n;++i){
-            int sum=0;
-            int tmp=i;
-            while (m > sum) {
-                if(tmp>=n) break;
-                sum+=arr[tmp];
-                tmp++;
-                if(m==sum) count++;
+        //로직
+        int left=0;
+        int right=0;
+        int sum=0;
+        int answer=0;
+        for(;right<n;++right){
+            sum+=arr[right];
+            while(sum >m){
+                sum-=arr[left++];
+            }
+            if(sum==m){
+                answer++;
             }
         }
-        System.out.println(count);
+        System.out.println(answer);
+
     }
+
 }
