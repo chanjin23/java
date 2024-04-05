@@ -20,9 +20,9 @@ public class Sol0405BigNumberOfK {
         //default는 오름차순정렬
         //블랙트리구조
         //Tset.remove(143);
-        //System.out.println(Tset.size());
-        //System.out.println("first : "+ Tset.first());
-        //System.out.println("last : "+ Tset.last());
+        //System.out.println(set.size());
+        //System.out.println("first : "+ set.first());
+        //System.out.println("last : "+ set.last());
         //TreeSet들의 다양한 메서드
         for(int i=0;i<n;++i){
             for(int j=i+1;j<n;++j){
