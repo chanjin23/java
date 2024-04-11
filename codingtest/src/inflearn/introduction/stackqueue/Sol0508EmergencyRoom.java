@@ -18,6 +18,8 @@ public class Sol0508EmergencyRoom {
         while(true){
             int first=arr[i];
 
+
+
         }
     }
 }
