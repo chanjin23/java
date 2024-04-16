@@ -2,7 +2,7 @@ package inflearn.introduction.sortandsearch;
 
 import java.util.*;
 import java.io.*;
-public class SelectionSort {
+public class Sol0602BubbleSort {
     public static void main(String[] args) throws Exception{
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         int n=Integer.parseInt(br.readLine());
@@ -11,24 +11,18 @@ public class SelectionSort {
         for(int i=0;i<n;++i){
             arr[i]=Integer.parseInt(st.nextToken());
         }
-
-        for(int i=0;i<n;++i){
-            int min=1000000;
-            int index=0;
-            for(int j=i+1;j<n;++j){
-                if(min >arr[j]){
-                    min=arr[j];
-                    index=j;
+        for(int i=n-1;i>0;--i){
+            for(int j=0;j<i;++j){
+                if(arr[j] >arr[j+1]){
+                    int tmp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=tmp;
                 }
-            }
-            if(min <arr[i]){
-                int tmp=arr[i];
-                arr[i]=arr[index];
-                arr[index]=tmp;
             }
         }
         for(int i=0;i<n;++i){
             System.out.print(arr[i]+" ");
         }
+
     }
 }
