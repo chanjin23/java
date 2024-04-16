@@ -59,32 +59,30 @@ public class Sol0604LeastRecentlyUsed{
         for(int i=0;i<n;++i){
             arr[i]=Integer.parseInt(st.nextToken());
         }
-        int[] cache=new int[s];
 
+        int[] cache=new int[s];
         for(int i=0;i<n;++i){
-            int pos =-1;
+            int pos=-1;
             for(int j=0;j<s;++j){
-                if(arr[i]==cache[j]){
+                if(cache[j]==arr[i]){
                     pos=j;
                     break;
                 }
             }
-            //miss된 경우
-            if(pos==-1){    //miss된경우에는 처음부터 땡겨준다.
-                for(int k=s-1;k>=1;--k){
+            //탐색되지 않았으므로 push
+            if(pos==-1){
+                for(int k=s-1;k>=1;--k){   //한칸씩 옆으로 민다.
                     cache[k]=cache[k-1];
                 }
-            }else{  //hit된 경우에는 값이 같은 지점부터 땡겨준다.
-                for(int k=pos;k>=1;--k){
+            }else{
+                for(int k=s-1;k>=pos;--k){
                     cache[k]=cache[k-1];
                 }
             }
             cache[0]=arr[i];
-
         }
         for(int i=0;i<s;++i){
             System.out.print(cache[i]+" ");
         }
-
     }
 }
