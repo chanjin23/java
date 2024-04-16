@@ -2,7 +2,7 @@ package inflearn.introduction.sortandsearch;
 
 import java.util.*;
 import java.io.*;
-public class InsertSort {
+public class Sol0603InsertSort {
     public static void main(String[] args) throws IOException{
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         int n=Integer.parseInt(br.readLine());
