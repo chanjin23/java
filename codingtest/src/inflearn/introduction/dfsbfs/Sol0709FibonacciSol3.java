@@ -2,7 +2,7 @@ package inflearn.introduction.dfsbfs;
 
 import java.util.Scanner;
 
-public class Sol0709FibonacciSol2 {
+public class Sol0709FibonacciSol3 {
     //피보나치 수열을 출력
     //입력설명 항수 3<=n<=45
     //피보나치 출력
@@ -10,7 +10,7 @@ public class Sol0709FibonacciSol2 {
     //output : 1 1 2 3 5 8 13 21 34 55
     static int[] fibonacci;
     public static void main(String[] args) {
-        //sol 2: 전역변수 선언하여 이용하는 방법
+        //sol 3: 매모이제이션 사용
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
@@ -22,6 +22,8 @@ public class Sol0709FibonacciSol2 {
     }
 
     public static int dfs(int n) {
+        if(fibonacci[n]>0) return fibonacci[n]; //값이 갱신되어있는지 확인
+        //되어있으면 있는 값 재사용, 없으면 피보나치 dfs 수행
         if (n == 1 || n == 2) return fibonacci[n]=1;
         else return fibonacci[n]=dfs(n - 1) + dfs(n - 2);
     }
