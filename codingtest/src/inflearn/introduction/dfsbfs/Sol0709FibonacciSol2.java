@@ -1,25 +1,28 @@
 package inflearn.introduction.dfsbfs;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class Sol0709FibonacciSol1 {
+public class Sol0709FibonacciSol2 {
     //피보나치 수열을 출력
     //입력설명 항수 3<=n<=45
     //피보나치 출력
     //input : 10
     //output : 1 1 2 3 5 8 13 21 34 55
+    static int[] fibonacci;
     public static void main(String[] args) {
-        //sol 1: 피보나치 단순구현, 하나를 수행할때마다 계속 반복 1초 -> 2초 -> 3초 -> 4초 ==10초
+        //sol 2: 전역변수 선언하여 이용하는 방법
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        for (int i = 0; i < n; ++i) {
-            System.out.print(dfs(i + 1) + " ");
+        fibonacci=new int[n+1]; //index 0번은 버린다.
+        dfs(n);
+        for (int i = 1; i < n+1; ++i) {
+            System.out.print(fibonacci[i] + " ");
         }
     }
 
     public static int dfs(int n) {
-        if (n == 1 || n == 2) return 1;
-        else return dfs(n - 1) + dfs(n - 2);
+        if (n == 1 || n == 2) return fibonacci[n]=1;
+        else return fibonacci[n]=dfs(n - 1) + dfs(n - 2);
     }
 }
