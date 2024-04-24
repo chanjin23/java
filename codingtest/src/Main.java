@@ -1,27 +1,25 @@
-//코딩테스트용 컴파일 확인용도
-import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        String[] arr = new String[n];
-        for (int i = 0; i < n; ++i) {
-            arr[i] = sc.nextLine();
-        }
+import java.util.Scanner;
 
-        for (int i = 0; i < n; ++i) {
-            char[] ch = arr[i].toCharArray();
-            int lt = 0;
-            int rt = arr[i].length() - 1;
-            while (lt <= rt) {
-                char tmp = ch[lt];
-                ch[lt] = ch[rt];
-                ch[rt] = tmp;
-                lt++;
-                rt--;
-            }
-            System.out.println(String.valueOf(ch));
-        }
+public class Main {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        String str=sc.nextLine();
+        String answer="";
+        String[] arr=new String[str.length()/7];
+
+        for(int i=0;i<arr.length;++i){
+            arr[i]=str.substring(0,7);
+            str=str.substring(7,str.length());
+        }//for
+
+        for(int i=0;i<arr.length;++i){
+            arr[i]=arr[i].replace("#","1");
+            arr[i]=arr[i].replace("*","0");
+            char tmp=(char)Integer.parseInt(arr[i],2);
+            answer+=tmp;
+        }//for
+        System.out.println(answer);
     }
 }

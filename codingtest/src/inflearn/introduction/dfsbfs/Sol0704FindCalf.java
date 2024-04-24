@@ -1,7 +1,7 @@
 package inflearn.introduction.dfsbfs;
 
 import java.util.*;
-public class Sol0708FindCalf {
+public class Sol0704FindCalf {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int s=sc.nextInt();
