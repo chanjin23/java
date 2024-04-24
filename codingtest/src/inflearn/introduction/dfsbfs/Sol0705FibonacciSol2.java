@@ -2,7 +2,7 @@ package inflearn.introduction.dfsbfs;
 
 import java.util.Scanner;
 
-public class Sol0709FibonacciSol2 {
+public class Sol0705FibonacciSol2 {
     //피보나치 수열을 출력
     //입력설명 항수 3<=n<=45
     //피보나치 출력
