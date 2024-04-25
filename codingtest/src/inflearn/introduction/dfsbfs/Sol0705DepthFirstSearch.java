@@ -1,6 +1,6 @@
 package inflearn.introduction.dfsbfs;
 
-public class Sol0710DepthFirstSearch {
+public class Sol0705DepthFirstSearch {
     //DFS(깊이우선탐색
     //이진트리를 전위순회와 후위순회를 연습하라
     //      1
