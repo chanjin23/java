@@ -3,17 +3,18 @@ package inflearn.introduction.dfsbfs;
 import java.util.*;
 
 public class Sol0713RouteNavigationArrayList {
-    //인접행렬 방식
-    //입력: 5 9
-    //1 2
-    //1 3
-    //1 4
-    //2 1
-    //2 3
-    //2 5
-    //3 4
-    //4 2
-    //4 5
+    //인접리스트 방식
+    //입력:
+//    5 9
+//    1 2
+//    1 3
+//    1 4
+//    2 1
+//    2 3
+//    2 5
+//    3 4
+//    4 2
+//    4 5
     //출력: 6
 
     static ArrayList<ArrayList<Integer>> list;
