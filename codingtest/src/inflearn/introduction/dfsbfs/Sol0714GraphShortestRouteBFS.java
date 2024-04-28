@@ -12,7 +12,7 @@ import java.util.*;
 4 6
 6 2
 6 5*/
-public class Sol0714GraphShortestRoute {
+public class Sol0714GraphShortestRouteBFS {
     static int n,m,level;
     static ArrayList<ArrayList<Integer>> graph;
     static int[] check;
