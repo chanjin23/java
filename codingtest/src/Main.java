@@ -1,25 +1,27 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        sc.nextLine();
-        String str=sc.nextLine();
-        String answer="";
-        String[] arr=new String[str.length()/7];
-
-        for(int i=0;i<arr.length;++i){
-            arr[i]=str.substring(0,7);
-            str=str.substring(7,str.length());
-        }//for
-
-        for(int i=0;i<arr.length;++i){
-            arr[i]=arr[i].replace("#","1");
-            arr[i]=arr[i].replace("*","0");
-            char tmp=(char)Integer.parseInt(arr[i],2);
-            answer+=tmp;
-        }//for
-        System.out.println(answer);
+    public static void main(String[] args)throws Exception{
+        BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+        int n=Integer.parseInt(br.readLine());
+        int[][] arr = new int[n][5];
+        for(int i=0;i<n;++i){
+            StringTokenizer st=new StringTokenizer(br.readLine());
+            for(int j=0;j<5;++j){
+                arr[i][j]=Integer.parseInt(st.nextToken());
+            }
+        }
+        //로직
+        int[] count = new int[n];
+        ArrayList<Integer> list =new ArrayList<>();
+        for(int i=0;i<n;++i){
+            for(int j=0;j<5;++j){
+                if(list.isEmpty()) list.add(arr[i][j]);
+                if (list.contains(arr[i][j])) {
+                    count[i]++;
+                }
+            }
+        }
     }
 }
