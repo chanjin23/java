@@ -2,7 +2,7 @@ package inflearn.introduction.dfsbfs;
 
 import java.util.*;
 
-public class Sol0713RouteNavigation {
+public class Sol0713RouteNavigationArrayList {
     //인접행렬 방식
     //입력: 5 9
     //1 2
