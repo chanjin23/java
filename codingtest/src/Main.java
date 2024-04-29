@@ -1,27 +1,30 @@
-import java.util.*;
-import java.io.*;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)throws Exception{
-        BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
-        int n=Integer.parseInt(br.readLine());
-        int[][] arr = new int[n][5];
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int[] arr=new int[n];
         for(int i=0;i<n;++i){
-            StringTokenizer st=new StringTokenizer(br.readLine());
-            for(int j=0;j<5;++j){
-                arr[i][j]=Integer.parseInt(st.nextToken());
-            }
+            arr[i]=sc.nextInt();
         }
-        //로직
-        int[] count = new int[n];
-        ArrayList<Integer> list =new ArrayList<>();
-        for(int i=0;i<n;++i){
-            for(int j=0;j<5;++j){
-                if(list.isEmpty()) list.add(arr[i][j]);
-                if (list.contains(arr[i][j])) {
-                    count[i]++;
-                }
+
+        int lt=0;
+        int rt=0;
+        int count=0;
+        int answer=0;
+        while(true){
+            if(arr[rt]==0) count++;
+            while(count>k){
+                if(arr[lt]==0) count--;
+                lt++;
             }
+            int len=rt-lt+1;
+            answer=Math.max(len,answer);
+            rt++;
+            if(arr.length <=rt) break;
         }
+        System.out.println(answer);
     }
 }
