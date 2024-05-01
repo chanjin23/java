@@ -26,6 +26,5 @@ public class Main {
             if(arr.length <=rt) break;
         }
         System.out.println(answer);
-        System.out.println(answer);
     }
 }
