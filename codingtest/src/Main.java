@@ -3,26 +3,37 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args)throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int k = Integer.parseInt(st.nextToken());
-        int[] arr = new int[n];
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; ++i) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        Scanner sc=new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (char c : str2.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i=0;i<k;++i){
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        int answer=0;
+        for (int i = 0; i < str1.length() - str2.length() + 1; ++i) {
+            int len=str2.length();
+            String tmp = str1.substring(i, i + len);
+            boolean flag=true;
+            for (char c : tmp.toCharArray()) {
+                if (!map.containsKey(c)){
+                    flag=false;
+                    break;
+                }
+                map.put(c, map.get(c) - 1);
+                if(map.get(c)!=0){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag) answer++;
+            for (char c : str2.toCharArray()) {
+                map.put(c, 1);
+            }
         }
-        System.out.print(map.size() + " ");
-        for (int i = 0; i <= n - k-1; ++i) {
-            map.put(arr[i], map.get(arr[i]) - 1);
-            map.put(arr[i + k], map.getOrDefault(arr[i + k], 0) + 1);
-            if(map.get(arr[i])==0) map.remove(arr[i]);
-            System.out.print(map.size() + " ");
-        }
+        System.out.println(answer);
+        System.out.println(answer);
     }
 }
