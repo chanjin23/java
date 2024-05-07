@@ -1,39 +1,40 @@
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args)throws Exception{
-        Scanner sc=new Scanner(System.in);
-        String str1 = sc.nextLine();
-        String str2 = sc.nextLine();
+    public static void main(String[] args) {
+        int MAX_NUMBER = 5;
 
-        HashMap<Character, Integer> map = new HashMap<>();
-        for (char c : str2.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+        for(int i=0; i<MAX_NUMBER; i++) {
+
+            for(int j=MAX_NUMBER-i;j>0;j--) {
+                System.out.print(" ");
+            }
+            for(int k=2; k<=i*2-1; k++) {
+                System.out.print("*");
+            }
+            for(int j=(MAX_NUMBER*2)-(i*2);j>=0;j--) {
+                System.out.print(" ");
+            }
+            for(int k=2; k<=i*2-1; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
 
-        int answer=0;
-        for (int i = 0; i < str1.length() - str2.length() + 1; ++i) {
-            int len=str2.length();
-            String tmp = str1.substring(i, i + len);
-            boolean flag=true;
-            for (char c : tmp.toCharArray()) {
-                if (!map.containsKey(c)){
-                    flag=false;
-                    break;
-                }
-                map.put(c, map.get(c) - 1);
-                if(map.get(c)!=0){
-                    flag=false;
-                    break;
-                }
+        for(int i=0; i<MAX_NUMBER*2; i++) {
+            int count=0;
+            for(int j=1;j<=i;j++) {
+                System.out.print(" ");
+                count++;
             }
-            if(flag) answer++;
-            for (char c : str2.toCharArray()) {
-                map.put(c, 1);
+            for(int k=0; k<(MAX_NUMBER*4)-(count*2)-3; k++) {
+                System.out.print("*");
             }
+            System.out.println();
         }
-        System.out.println(answer);
-        System.out.println(answer);
     }
 }
