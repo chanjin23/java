@@ -1,40 +1,16 @@
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.*;
 import java.io.*;
-
 public class Main {
+    static int n,m;
+    static int[] arr;
     public static void main(String[] args) {
-        int MAX_NUMBER = 5;
-
-        for(int i=0; i<MAX_NUMBER; i++) {
-
-            for(int j=MAX_NUMBER-i;j>0;j--) {
-                System.out.print(" ");
-            }
-            for(int k=2; k<=i*2-1; k++) {
-                System.out.print("*");
-            }
-            for(int j=(MAX_NUMBER*2)-(i*2);j>=0;j--) {
-                System.out.print(" ");
-            }
-            for(int k=2; k<=i*2-1; k++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-
-        for(int i=0; i<MAX_NUMBER*2; i++) {
-            int count=0;
-            for(int j=1;j<=i;j++) {
-                System.out.print(" ");
-                count++;
-            }
-            for(int k=0; k<(MAX_NUMBER*4)-(count*2)-3; k++) {
-                System.out.print("*");
-            }
-            System.out.println();
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        arr = new int[n];
+        for (int i = 0; i < n; ) {
+            arr[i] = sc.nextInt();
         }
     }
 }
