@@ -2,7 +2,7 @@ package inflearn.introduction.utilizingdfsbfs;
 
 import java.util.*;
 import java.io.*;
-public class Sol0813Island {
+public class Sol0813IslandDFS {
     static int n;
     static int[][] arr;
     static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
