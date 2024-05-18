@@ -1,30 +1,32 @@
 
 import java.util.*;
-import java.io.*;
+
 public class Main {
-    static int c,answer;
+    //1부터 n까지 번호가 적힌 구슬이 있다. 이중 m개를 뽑느 방법의 수를 출력하는 프로그램을 작성하라
+    static int n,m,count=0;
+    static int[] arr,answer;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        c = sc.nextInt();
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; ++i) {
-            arr[i] = sc.nextInt();
-        }
-        answer=0;
-        dfs(0, 0,arr);
-        System.out.println(answer);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        arr = new int[n];
+        answer = new int[m];
+        for (int i = 0; i < n; ++i) arr[i] = i + 1;
+
+        dfs(0, 0);
+        System.out.println(count);
     }
 
-    public static void dfs(int level, int sum,int[] arr) {
-        if(c <sum) return;
-        if(level==arr.length){
-            if (c >= sum) {
-                answer = Math.max(answer, sum);
-            }
+    public static void dfs(int level, int idx) {
+        if(level==m) {
+            for(int i:answer) System.out.print(i + " ");
+            System.out.println();
+            ++count;
         }else{
-            dfs(level + 1, sum + arr[level], arr);
-            dfs(level + 1, sum, arr);
+            for (int i = idx; i < n; ++i) {
+                answer[level]=arr[i];
+                dfs(level + 1, i + 1);
+            }
         }
     }
 }

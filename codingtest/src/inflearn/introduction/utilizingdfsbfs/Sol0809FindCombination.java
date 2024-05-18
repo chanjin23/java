@@ -12,14 +12,16 @@ public class Sol0809FindCombination {
         m = sc.nextInt();
         answer = new int[m];
         dfs(0,1);
+        //level -> answer에 대한 인덱스
+        //idx -> arr에 대한 인덱스
     }
 
-    public static void dfs(int level,int sum) {
+    public static void dfs(int level,int idx) {
         if (level == m) {
             for(int i:answer) System.out.print(i+" ");
             System.out.println();
         }else{
-            for (int i=sum; i <= n; ++i) {
+            for (int i=idx; i <= n; ++i) {
                 answer[level] = i;
                 dfs(level + 1,i+1);
             }
