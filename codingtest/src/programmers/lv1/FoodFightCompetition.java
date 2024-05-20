@@ -17,6 +17,6 @@ public class FoodFightCompetition {
         }
         answer+="0";
         answer+=(new StringBuilder(answer).reverse().toString().substring(1,answer.length()));
-        return answer;
+        System.out.println(answer);
     }
 }
