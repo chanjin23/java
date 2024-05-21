@@ -16,7 +16,7 @@ public class LongJump {
     public int dfs(int a,int b){
         if(memory[a][b]>0) return memory[a][b];
         if(a==b||b==0) return memory[a][b] = 1;
-        else return memory[a][b]=dfs(a-1,b-1)+dfs(a-1,b);
+        else return memory[a][b]=dfs(a-1,b-1)+dfs(a-1,b)%1234567;
     }
     public static void main(String[] args) {
         LongJump T = new LongJump();
