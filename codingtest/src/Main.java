@@ -3,28 +3,60 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+    static int[] arr;
+    static ArrayList<ArrayList<Point>> list;
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-        int n=10;
-        for (int i = 0; i < n; ++i) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        list = new ArrayList<>();
+        for (int i = 0; i <= n; ++i) {
             list.add(new ArrayList<>());
-            list.get(i).add(1);
-            list.get(i).add(2);
-            list.get(i).add(3);
-            list.get(i).add(4);
-            list.get(i).add(5);
-            list.get(i).add(6);
-            list.get(i).add(7);
-            list.get(i).add(8);
         }
-        for (ArrayList<Integer> integers : list) {
+        for (int i = 0; i < m; ++i) {
+            int node = sc.nextInt();
+            int nextNode = sc.nextInt();
+            int weight = sc.nextInt();
+            list.get(node).add(new Point(nextNode, weight));
+        }
+        arr = new int[n + 1];
+        Arrays.fill(arr, Integer.MAX_VALUE);
 
-            for (Integer integer : integers) {
-                System.out.print(integer + " ");
+        PriorityQueue<Point> pQ = new PriorityQueue<>();
+        pQ.offer(new Point(1, 0));
+        while (!pQ.isEmpty()) {
+            Point tmp = pQ.poll();
+            int currentNode = tmp.nextNode;
+            int currentWeight = tmp.weight;
+            if(arr[currentNode] <currentWeight) continue;
+            for (Point p : list.get(currentNode)) {
+                if (arr[p.nextNode] > currentWeight + p.weight) {
+                    arr[p.nextNode] = currentWeight + p.weight;
+                    pQ.offer(new Point(p.nextNode, currentWeight + p.weight));
+                }
             }
-            System.out.println();
+        }
+        for (int i = 2; i <= n; ++i) {
+            if (arr[i] == Integer.MAX_VALUE) {
+                System.out.println(i+" : impossible");
+            }else{
+                System.out.println(i+" : "+ arr[i]);
+            }
         }
 
+    }
+    public static class Point implements Comparable<Point>{
+        int nextNode;
+        int weight;
 
+        public Point(int nextNode, int weight) {
+            this.nextNode = nextNode;
+            this.weight = weight;
+        }
+
+        @Override
+        public int compareTo(Point o) {
+            return weight - o.weight;
+        }
     }
 }
