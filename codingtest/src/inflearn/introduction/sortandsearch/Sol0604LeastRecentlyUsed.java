@@ -75,7 +75,7 @@ public class Sol0604LeastRecentlyUsed{
                     cache[k]=cache[k-1];
                 }
             }else{
-                for(int k=s-1;k>=pos;--k){
+                for(int k=pos;k>=1;--k){
                     cache[k]=cache[k-1];
                 }
             }
