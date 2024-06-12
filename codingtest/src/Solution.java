@@ -10,9 +10,5 @@ public class Solution {
         System.out.println(a);
         System.out.println(a);
         System.out.println(a);
-        System.out.println(a);
-        System.out.println(a);
-        System.out.println(a);
-        System.out.println(a);
     }
 }
